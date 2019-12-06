@@ -1,0 +1,27 @@
+apply plugin: 'com.android.library'
+apply from: "$rootProject.projectDir/shared.gradle"
+
+android {
+
+    buildTypes {
+
+        debug {
+            buildConfigField "String", "BASE_URL", '"https://powerful-peak-54206.herokuapp.com/"'
+        }
+        release {
+            buildConfigField "String", "BASE_URL", '"https://powerful-peak-54206.herokuapp.com/"'
+        }
+    }
+}
+
+dependencies {
+    api project(':survey-networking')
+
+    api Dependencies.okHttp                     // api required by Dagger
+
+    api Dependencies.retrofit                   // api required by Dagger
+    implementation Dependencies.retrofitGson
+    implementation Dependencies.retrofitRxJava
+
+    testImplementation Dependencies.mockito
+}

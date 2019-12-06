@@ -1,0 +1,7 @@
+include ':survey-app'
+include ':survey-core'
+include ':survey-networking'
+include ':survey-networking-retrofit'
+include ':survey-testing'
+
+rootProject.name='Survey App'

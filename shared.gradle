@@ -1,0 +1,58 @@
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+
+    compileSdkVersion Versions.sdkCompile
+    defaultConfig {
+        minSdkVersion Versions.sdkMin
+        targetSdkVersion Versions.sdkTarget
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        debug.java.srcDirs += 'src/debug/kotlin'
+        release.java.srcDirs += 'src/release/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
+    }
+
+    compileOptions {
+        sourceCompatibility Versions.java
+        targetCompatibility Versions.java
+
+        kotlinOptions {
+            jvmTarget = Versions.java.toString()
+            freeCompilerArgs = ['-Xjvm-default=compatibility']
+        }
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
+    resourcePrefix "survey_"
+}
+
+kapt {
+    correctErrorTypes true
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation Dependencies.kotlin
+
+    implementation Dependencies.dagger
+    kapt Dependencies.daggerProcessor
+
+    testImplementation project(':survey-testing')
+    androidTestImplementation Dependencies.androidXJunit
+    androidTestImplementation Dependencies.androidXEspresso
+}

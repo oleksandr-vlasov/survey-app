@@ -1,0 +1,20 @@
+<resources>
+    <string name="survey_app_name">Survey App</string>
+
+    <string name="survey_question_number">Question %d/%d</string>
+    <string name="survey_error_general">Something went wrong.</string>
+    <string name="survey_error_network">Network connection problem.</string>
+    <string name="survey_answered_successfully">Your answer has been saved.</string>
+    <string name="survey_action_retry">Retry</string>
+    <string name="survey_no_questions">No questions available at this moment.</string>
+    <string name="survey_hint_answer">Answer</string>
+    <string name="survey_previous_question">Previous question</string>
+    <string name="survey_next_question">Next question</string>
+    <string name="survey_submit">Submit</string>
+    <string name="survey_start_survey">Start Survey</string>
+
+    <plurals name="survey_answered_questions">
+        <item quantity="one">Answered %d question</item>
+        <item quantity="other">Answered %d questions</item>
+    </plurals>
+</resources>

@@ -1,0 +1,11 @@
+apply plugin: 'com.android.library'
+apply from: "$rootProject.projectDir/shared.gradle"
+
+dependencies {
+    api Dependencies.viewModelExtensions
+    api Dependencies.recyclerView
+    api Dependencies.rxJava
+
+    api Dependencies.daggerAndroid
+    kapt Dependencies.daggerAndroidProcessor
+}
