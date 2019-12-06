@@ -39,7 +39,10 @@ android {
 dependencies {
     api Dependencies.junit
     api Dependencies.mockito
-    api Dependencies.robolectric
+    api (Dependencies.robolectric) {
+        exclude group: "org.apache.maven.wagon"
+        exclude group: "org.apache.maven"
+    }
 
     api Dependencies.rxJava
     api Dependencies.rxAndroid
